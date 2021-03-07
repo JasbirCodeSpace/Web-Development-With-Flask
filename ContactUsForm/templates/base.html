@@ -1,0 +1,17 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>{% block title %}{% endblock title %}</title>
+  {% block css %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  {% endblock css %}
+
+</head>
+    {% block content %}{% endblock content %}
+<body>
+      {% block js %}{% endblock js %}
+</body>
+</html>
