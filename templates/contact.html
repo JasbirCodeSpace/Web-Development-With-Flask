@@ -1,39 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="contact">
-    <h1>Contact us</h1>
-    {% for message in get_flashed_messages() %}
-            <div class="flash {% if flag %}green{% else %}red{% endif %}">
-                {{ message }}
-                <i class="fa fa-times close" onclick=delete_flash(this)></i>
+<div class="container">
+    <div class="contact">
+        <h1>Contact us</h1>
+        {% for message in get_flashed_messages() %}
+                <div class="flash {% if flag %}green{% else %}red{% endif %}">
+                    {{ message }}
+                    <i class="fa fa-times close" onclick=delete_flash(this)></i>
+                </div>
+        {% endfor %}
+        <form action="{{ url_for('contact') }}" method="POST">
+            {{ form.hidden_tag() }}
+            <div>
+                <p>
+                    {{ form.name.label }} <br>
+                    {{ form.name(placeholder='Your name') }}
+                </p>
+                <p>
+                    {{ form.email.label }} <br>
+                    {{ form.email(placeholder='Your e-mail ...') }}
+                </p>
+                <p>
+                    {{ form.subject.label }}<br>
+                    {{form.subject(placeholder='Your subject ...')}}
+                </p>
+                <p>
+                    {{ form.message.label }}<br>
+                    {{ form.message(placeholder='Write your message ...') }}
+                </p>
+                <p>
+                    {{ form.submit }}
+                </p>
             </div>
-    {% endfor %}
-    <form action="{{ url_for('contact') }}" method="POST">
-        {{ form.hidden_tag() }}
-        <div>
-            <p>
-                {{ form.name.label }} <br>
-                {{ form.name(placeholder='Your name') }}
-            </p>
-            <p>
-                {{ form.email.label }} <br>
-                {{ form.email(placeholder='Your e-mail ...') }}
-            </p>
-            <p>
-                {{ form.subject.label }}<br>
-                {{form.subject(placeholder='Your subject ...')}}
-            </p>
-            <p>
-                {{ form.message.label }}<br>
-                {{ form.message(placeholder='Write your message ...') }}
-            </p>
-            <p>
-                {{ form.submit }}
-            </p>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
-
 {% endblock content %}
 
 {% block css %}
