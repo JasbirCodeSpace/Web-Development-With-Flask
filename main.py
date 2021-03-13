@@ -8,8 +8,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 from threading import Thread
 
-env_path = Path('.')/'.env'
-load_dotenv(dotenv_path = env_path)
+# env_path = Path('.')/'.env'
+# load_dotenv(dotenv_path = env_path)
 app = Flask(__name__)
 base_dir = Path(__file__).resolve().parent
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
